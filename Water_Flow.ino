@@ -18,7 +18,7 @@ byte pulse1Sec = 0;
 float flowRate;
 unsigned long flowMilliLitres;
 unsigned int totalMilliLitres;
-float flowLitres;
+//float flowLitres;
 float totalLitres;
 
 void IRAM_ATTR pulseCounter()
@@ -81,7 +81,6 @@ void loop()
       postStr += String(float(flowRate)); // Send flow rate to Field 1
       postStr += "&field2=";
       postStr += String(totalLitres * 4); // Calculate cumulative cost and send to Field 2
-      postStr += "\r\n\r\n";
     
       client.print("POST /update HTTP/1.1\n");
       client.print("Host: api.thingspeak.com\n");
